@@ -1,5 +1,45 @@
 <h1>Nested drag and drop</h1>
 
 <div class="content">
-    <nested-item *ngFor="let item of items" [data]="item"></nested-item>
+    <!-- <nested-item *ngFor="let item of items; let i = index;" [data]="item" [index]="i"></nested-item> -->
+
+    <div class="layout-padding">
+
+        <ng-template #recursiveList
+                     let-list>
+            <div dndPlaceholderRef class="dndPlaceholder"></div>
+      
+            <div *ngFor="let item of list"
+                    [dndDraggable]="item"
+                    dndEffectAllowed="move"
+                    [dndDisableIf]="item.disable"
+                    (dndCopied)="onDragged(item, list, 'copy')"
+                    (dndLinked)="onDragged(item, list, 'link')"
+                    (dndMoved)="onDragged(item, list, 'move')"
+                    (dndCanceled)="onDragged(item, list, 'none')">
+        
+                {{item?.title}}
+            
+                <div *ngIf="item.children"
+                        class="layout-padding"
+                        dndDropzone
+                        (dndDrop)="onDrop($event, item.children)">
+            
+                    <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.children }"></ng-container>
+            
+                </div>
+        
+            </div>
+      
+        </ng-template>
+      
+        <div class="layout-padding"
+             dndDropzone
+             (dndDrop)="onDrop($event, items)">
+      
+          <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: items }"></ng-container>
+      
+        </div>
+      
+      </div>
 </div>

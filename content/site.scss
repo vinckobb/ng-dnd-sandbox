@@ -155,3 +155,32 @@ nested-item
         padding-left: 2em;
     }
 }
+
+.drag-placeholder
+{
+    height: 20px;
+    background-color: red;
+    width: 100%;
+}
+
+.layout-padding
+{
+    padding-left: 1em;
+}
+
+.dndDraggingSource {
+
+    opacity: .5;
+    transform: scale(.98);
+  }
+
+  .dndPlaceholder {
+
+    min-height: 48px;
+    border: 1px dashed green;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  [dndDropzone] {
+    min-height: 1em;
+}

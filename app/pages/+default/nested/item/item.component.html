@@ -1,10 +1,25 @@
-<div class="nested-item-header">
-    <div class="nested-item-handle">
-        <span class="fas fa-bars"></span>
-    </div>
-    <div class="nested-item-title">{{data?.title}}</div>
-</div>
+<div 
+    class="nested-item"
+    #dndCoreNested="dndCoreNestedItem"
+    #dropzone
+    [dropzoneElement]="dropzone"
+    [containerElement]="childrenContainer"
+    [dndCoreNestedItem]="{data: data, parentId: parent?.id, index: index}"
+    [dragDisabled]="false"
+    [dragSource]="dndCoreNested.drag"
+    (dropMetadata)="moved($event)">
 
-<div class="nested-item-children" *ngIf="data?.children?.length > 0">
-    <nested-item *ngFor="let child of data?.children" [data]="child"></nested-item>
+    <div [dropTarget]="dndCoreNested.dropzone">
+        <div class="nested-item-header">
+            <div class="nested-item-handle">
+                <span class="fas fa-bars"></span>
+            </div>
+            <div class="nested-item-title">{{data?.title}}</div>
+        </div>
+    
+        <div class="nested-item-children" #childrenContainer>
+            <nested-item *ngFor="let child of data?.children; let i = index;" [data]="child" [parent]="data" [index]="i"></nested-item>
+        </div>
+    </div>
+
 </div>

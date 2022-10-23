@@ -7,7 +7,9 @@ import {ConsoleLogModule} from '@anglr/common/structured-log';
 import {ProgressIndicatorModule} from '@anglr/common';
 import {NotificationsGlobalModule} from '@anglr/notifications';
 import {TranslateModule, TranslateLoader, MissingTranslationHandler} from '@ngx-translate/core';
+import {DndModule} from '@ng-dnd/core';
 import {HotkeyModule} from 'angular2-hotkeys';
+import {HTML5Backend} from 'react-dnd-html5-backend';
 
 import {AppComponent} from './app.component';
 import {components, routesOptions} from './app.component.routes';
@@ -33,6 +35,10 @@ import {ReportMissingTranslationService} from '../services/missingTranslation';
         NotificationsGlobalModule.forRoot(),
         RouterModule,
         HotkeyModule,
+        DndModule.forRoot(
+        {
+            backend: HTML5Backend
+        }),
         ConsoleLogModule.forRoot(),
         TranslateModule.forRoot(
         {

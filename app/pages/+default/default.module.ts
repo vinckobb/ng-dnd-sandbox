@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {ModuleRoutes} from '@anglr/common/router';
+import {DndModule} from 'ngx-drag-drop';
 
 import {components} from './default.routes';
 import {DebuggingFeatureModule, DisplayingFeatureModule, FormsFeatureModule} from '../../modules';
@@ -16,6 +17,7 @@ import {NestedItemSAComponent} from './nested/item/item.component';
         FormsFeatureModule,
         DebuggingFeatureModule,
         NestedItemSAComponent,
+        DndModule,
     ],
     declarations:
     [

@@ -86,7 +86,10 @@
         "store": "2.0.12",
         "konami": "1.6.2",
         "structured-log": "0.2.0",
-        "tslib": "2.4.0"
+        "tslib": "2.4.0",
+        "@ng-dnd/core": "^2.0.2",
+        "react-dnd-html5-backend": "^16.0.1",
+        "ngx-drag-drop": "14.0.0"
     },
     "devDependencies": {
         "@types/node": "14.14.31",
