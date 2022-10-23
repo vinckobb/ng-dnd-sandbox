@@ -126,3 +126,32 @@ app
         transform: rotate(360deg);
     }
 }
+
+nested-item
+{
+    display: block;
+    padding: .5em;
+
+    .nested-item-header
+    {
+        display: flex;
+        background-color: rgb(96, 180, 96);
+        padding: .5em;
+        border-radius: .5em;
+
+        .nested-item-handle
+        {
+            padding: 0 .5em;
+        }
+
+        .nested-item-title
+        {
+            flex: 1;
+        }
+    }
+
+    .nested-item-children
+    {
+        padding-left: 2em;
+    }
+}

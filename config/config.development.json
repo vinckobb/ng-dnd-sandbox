@@ -24,7 +24,7 @@
                 "name": "Slovenčina"
             }
         ],
-        "disableMockLogger": false
+        "disableMockLogger": true
     },
     "general":
     {
