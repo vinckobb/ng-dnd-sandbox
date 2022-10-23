@@ -1,0 +1,11 @@
+*
+
+!config/config.json
+!config/config.environment.json
+!mocks
+!wwwroot
+!server.cjs
+!server.mock.cjs
+!server.rest.cjs
+!server.crt
+!server.key

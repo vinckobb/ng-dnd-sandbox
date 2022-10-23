@@ -1,0 +1,95 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@use '../../vars';
+
+$theme: null !default;
+
+//############## COLLAPSIBLE ICON ##############
+
+@mixin collapsible-icon($foreground, $foregroundHover)
+{
+    .vertical,
+    .horizontal
+    {
+        border-color: $foreground;
+        background-color: $foreground;
+    }
+
+    a.btn-icon:hover
+    {
+        .vertical,
+        .horizontal
+        {
+            border-color: $foregroundHover;
+            background-color: $foregroundHover;
+        }
+    }
+}
+
+collapsible-icon
+{
+    @include collapsible-icon(map.get($theme, btnIconForeground), map.get($theme, btnIconForegroundHover));
+}
+
+.secondary-block
+{
+    collapsible-icon
+    {
+        @include collapsible-icon(color.scale(map.get($theme, btnIconForeground), $lightness: 60%), map.get($theme, btnIconForegroundHover));
+    }
+}
+
+//############## DOUBLE RIGHT ICON ##############
+
+.double-right-icon
+{
+    .left-angle,
+    .right-angle
+    {
+        div
+        {
+            border-color: map.get($theme, btnIconForeground);
+        }
+    }
+}
+
+//############## VAHA ##############
+
+vaha-tag
+{
+    div
+    {
+        color: map.get($theme, weightForeground);
+
+        &.weight-0
+        {
+            background-color: map.get($theme, weight-0);
+        }
+        
+        &.weight-1
+        {
+            background-color: map.get($theme, weight-1);
+        }
+
+        &.weight-2
+        {
+            background-color: map.get($theme, weight-2);
+        }
+
+        &.weight-3
+        {
+            background-color: map.get($theme, weight-3);
+        }
+
+        &.weight-4
+        {
+            background-color: map.get($theme, weight-4);
+        }
+
+        &.weight-5
+        {
+            background-color: map.get($theme, weight-5);
+        }
+    }
+}

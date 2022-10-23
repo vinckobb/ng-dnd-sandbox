@@ -1,0 +1,25 @@
+//---------------------- SIZING ----------------------
+$sizeXs: 4px;
+$sizeSm: 10px;
+$sizeMd: 15px;
+$sizeLg: 20px;
+$sizeBg: $sizeLg;
+
+$negXsWidth: -2px;
+$negSmWidth: -10px;
+$negMdWidth: -20px;
+$negLgWidth: -36px;
+
+$fontSizeXs: 10px;
+$fontSizeSm: 12px;
+$fontSizeMd: 14px;
+$fontSizeLg: 16px;
+$fontSizeXl: 18px;
+$fontSizeXxl: 22px;
+$fontSizeXxxl: 32px;
+
+$responsiveTrasholdMd: 800px;
+
+$borderRadius: 4px;
+
+$sizes: (none: 0, extra-small: $sizeXs, small: $sizeSm, medium: $sizeMd, big: $sizeLg);

@@ -1,0 +1,11 @@
+<progress-indicator></progress-indicator>
+<global-notifications></global-notifications>
+<hotkeys-cheatsheet></hotkeys-cheatsheet>
+
+<div class="content relative" [@routeAnimations]="routeComponentState">
+    <div class="main-content">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+</div>
+
+<console *ngIf="consoleVisible" @consoleAnimation></console>

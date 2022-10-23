@@ -1,0 +1,238 @@
+@use '../vars';
+
+//############## CONTROL LABEL ##############
+
+.control-label
+{
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+//############## FORM CONTROL ##############
+
+%form-control
+{
+    border-radius: vars.$borderRadius;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: none;
+    font-size: 12px;
+    padding: 3px;
+    padding-left: 7px;
+    width: 100%;
+    font-family: "Inter";
+}
+
+.form-control:not(ng-select):not(date-time-selector)
+{
+    @extend %form-control;
+}
+
+ng-select.form-control
+{
+    .covid-normal-state
+    {
+        @extend %form-control;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: vars.$sizeXs;
+        padding-left: 3px;
+
+        .selected-value
+        {
+            margin-left: 4px;
+            flex: 1;
+            text-align: left;
+        }
+    }
+
+    .covid-live-input
+    {
+        padding: 0;
+        border: none;
+        width: 100%;
+        min-width: 150px;
+    }
+
+    .covid-live-wrapper
+    {
+        width: initial;
+        flex: 1;
+        margin-left: vars.$sizeXs;
+    }
+
+    .covid-select-tag
+    {
+        white-space: nowrap;
+        padding: 0 4px;
+        border-radius: 3px;
+        margin-left: vars.$sizeXs;
+    }
+
+    .covid-popup-div
+    {
+        padding: 5px 4px;
+        font-weight: 500;
+        font-size: 0.9em;
+    }
+}
+
+date-time-selector.form-control
+{
+    input-date-time-selector
+    {
+        input
+        {
+            @extend %form-control;
+        }
+    }
+}
+
+//############## INPUT GROUP ##############
+
+.input-group
+{
+    display: flex;
+    flex-direction: row;
+
+    .input-group-addon
+    {
+        font-size: 0.7em;
+        align-self: center;
+        padding: 3px 4px 4px;
+        border-top-style: solid;
+        border-bottom-style: solid;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+
+        &:first-child
+        {
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+    }
+
+    .form-control
+    {
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 0;
+
+        &:last-child
+        {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+}
+
+//############## TIGHT ##############
+
+// .tight
+// {
+//     .btn
+//     {
+//         font-size: 0.8em;
+//         padding: 4px 8px;
+
+//         &:active:not(.disabled):not(.btn-select)
+//         {
+//             padding-left: 6px;
+//             padding-right: 6px;
+//             margin-left: 2px;
+//             margin-right: 2px;
+//         }
+//     }
+
+//     ng-select
+//     {
+//         button.btn-select,
+//         div.btn-select
+//         {
+//             font-size: 12px;
+//             padding: 3px;
+//         }
+
+//         .edit-normal-state
+//         {
+//             .btn-select
+//             {
+//                 padding: 0;
+
+//                 .edit-control
+//                 {
+//                     height: auto;
+//                     padding: 3px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+//############## FORM ERRORS ##############
+
+.has-error
+{
+    %control-error
+    {
+        outline-color: transparent;
+        outline-style: solid;
+        outline-width: 2px;
+    }
+
+    .form-control:not(ng-select):not(date-time-selector)
+    {
+        @extend %control-error;
+    }
+
+    ng-select.form-control
+    {
+        .normal-state button.btn-select
+        {
+            @extend %control-error;
+
+            display: flex;
+        }
+
+        .edit-normal-state div.btn-select
+        {
+            @extend %control-error;
+
+            display: flex;
+        }
+    }
+
+    date-time-selector.form-control
+    {
+        input-date-time-selector
+        {
+            input
+            {
+                @extend %control-error;
+            }
+        }
+    }
+}
+
+.validation-error-div
+{
+    font-size: 0.7em;
+}
+
+.form-error
+{
+    list-style: square;
+    display: list-item;
+    margin-left: 14px;
+}
+
+reserved-space-validation-errors-container>div
+{
+    min-height: .9em;
+}
